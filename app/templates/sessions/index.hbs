@@ -1,0 +1,26 @@
+<h2>List</h2>
+<div class="row">
+  {{#each model as |ocrsession|}}
+    <div class="col-md-4">
+        <div class="panel panel-default ocrsession-item">
+            <div class="panel-heading">
+                <h3 class="panel-title">{{ocrsession.name}}</h3>
+            </div>
+            <div class="panel-body">
+
+                <p>Description: {{ocrsession.description}}</p>
+                <p>Created By: {{ocrsession.createdBy}}</p>
+                <p>File Name : {{ocrsession.filename}}</p>
+                <p>File Location : {{ocrsession.fileLocation}}</p>
+                <p>Created on : {{ocrsession.createdDateTime}}</p>
+                <p>Updated on : {{ocrsession.updatedDateTime}} By {{ocrsession.updatedBy}}</p>
+
+            </div>
+            <div class="panel-footer text-right">
+              {{#link-to 'sessions.edit' ocrsession.id class='btn btn-success btn-xs'}}Edit{{/link-to}}
+                <button class="btn btn-danger btn-xs" {{action 'deleteOcrSession' ocrsession}}>Delete</button>
+            </div>
+        </div>
+      </div>
+  {{/each}}
+</div>

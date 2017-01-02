@@ -16,15 +16,32 @@ module.exports = function(environment) {
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
-    }
+    },
+
+	  // if using ember-cli-content-security-policy
+    contentSecurityPolicy: {
+       'script-src': "'self' 'unsafe-eval' apis.google.com",
+       'frame-src': "'self' https://*.firebaseapp.com",
+       'connect-src': "'self' wss://*.firebaseio.com https://*.googleapis.com http://localhost:8080/ß"
+     },
+
+  // Initialize Firebase
+	firebase: {
+		apiKey: "AIzaSyDEQYE16RJen936BubOxU87nZPVEE4RrLs",
+		authDomain: "ocr-scraper.firebaseapp.com",
+		databaseURL: "https://ocr-scraper.firebaseio.com",
+		storageBucket: "ocr-scraper.appspot.com",
+		messagingSenderId: "382479633195"
+	 }
+
   };
 
   if (environment === 'development') {
-    // ENV.APP.LOG_RESOLVER = true;
-    // ENV.APP.LOG_ACTIVE_GENERATION = true;
-    // ENV.APP.LOG_TRANSITIONS = true;
-    // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
-    // ENV.APP.LOG_VIEW_LOOKUPS = true;
+     // ENV.APP.LOG_RESOLVER = true;
+     ENV.APP.LOG_ACTIVE_GENERATION = true;
+     ENV.APP.LOG_TRANSITIONS = true;
+     ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
+     ENV.APP.LOG_VIEW_LOOKUPS = true;
   }
 
   if (environment === 'test') {
